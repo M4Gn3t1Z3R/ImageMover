@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ImageMover.ViewModels;
+
 namespace ImageMover
 {
     /// <summary>
@@ -22,6 +24,7 @@ namespace ImageMover
     {
         public MainWindow()
         {
+            this.DataContext = new MainViewModel();
             InitializeComponent();
         }
     }
