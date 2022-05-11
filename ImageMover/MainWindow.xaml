@@ -1,13 +1,14 @@
-﻿<Window x:Class="ImageMover.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:viewModel="clr-namespace:ImageMover.ViewModels"
-        xmlns:models="clr-namespace:ImageMover.Models"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ImageMover"
-        mc:Ignorable="d"
-        Title="Mover" Height="712" Width="1024" d:DataContext="{d:DesignInstance Type=viewModel:MainViewModel, IsDesignTimeCreatable=True}">
+﻿<!-- This file was originally Created by M4Gn3t1Z3R. Original Repository at https://github.com/M4Gn3t1Z3R/ImageMover/tree/master See the license file for further information on how you may use this file and the entire work -->
+<Window x:Class="ImageMover.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:viewModel="clr-namespace:ImageMover.ViewModels"
+    xmlns:models="clr-namespace:ImageMover.Models"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:ImageMover"
+    mc:Ignorable="d"
+    Title="Mover" Height="712" Width="1024" d:DataContext="{d:DesignInstance Type=viewModel:MainViewModel, IsDesignTimeCreatable=True}">
     <Window.Resources>
         <DataTemplate x:Key="ImageDisplay" DataType="{x:Type models:ImageDisplay}">
             <Grid>

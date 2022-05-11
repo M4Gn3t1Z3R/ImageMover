@@ -1,20 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/*
+This file was originally Created by M4Gn3t1Z3R. Original Repository at https://github.com/M4Gn3t1Z3R/ImageMover/tree/master See the license file for further information on how you may use this file and the entire work
+*/
+using System;
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using ImageMover;
 using ImageMover.Enums;
 using ImageMover.Models;
 using ImageMover.MVVM;
 
 namespace ImageMover.ViewModels
 {
+    /// <summary>
+    /// this is the main view model. It handles basically almost all app interaction and redirects it as needed. 
+    /// Because the application is relatively small, it is not in 100% pure mvvm, as I couldn't be bothered to write an extra dialog service for this
+    /// </summary>
     class MainViewModel: ViewModelBase
     {
         private ObservableCollection<ImageDisplay> _images;

@@ -1,9 +1,15 @@
-﻿using System.Windows.Media.Imaging;
+﻿/*
+This file was originally Created by M4Gn3t1Z3R. Original Repository at https://github.com/M4Gn3t1Z3R/ImageMover/tree/master See the license file for further information on how you may use this file and the entire work
+*/
+using System.Windows.Media.Imaging;
 
 using ImageMover.MVVM;
 
 namespace ImageMover.Models
 {
+    /// <summary>
+    /// this is a display class to simply display our images in the list we have in wpf
+    /// </summary>
     class ImageDisplay : ViewModelBase
     {
         private bool _selectedForTransfer;

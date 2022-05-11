@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*
+This file was originally Created by M4Gn3t1Z3R. Original Repository at https://github.com/M4Gn3t1Z3R/ImageMover/tree/master See the license file for further information on how you may use this file and the entire work
+*/
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -10,8 +13,16 @@ using ImageMover.Enums;
 
 namespace ImageMover
 {
+    /// <summary>
+    /// this class provides independent methods to alter various data and to write a savefile
+    /// </summary>
     public static class StaticFunctions
     {
+        /// <summary>
+        /// this method converts a bitmap to a wpf-usable image source
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <returns></returns>
         public static BitmapImage BitmapToImageSource(Bitmap bitmap)
         {
             BitmapImage returnerImage = new BitmapImage();
@@ -26,6 +37,11 @@ namespace ImageMover
             return returnerImage;
         }
 
+        /// <summary>
+        /// this method converts a wpf-usable image source to a bitmap
+        /// </summary>
+        /// <param name="bitmapImage"></param>
+        /// <returns></returns>
         public static Bitmap BitmapImageToBitmap(BitmapImage bitmapImage)
         {
             using (MemoryStream ms = new MemoryStream())
@@ -35,15 +51,6 @@ namespace ImageMover
                 encoder.Save(ms);
                 Bitmap returner = new Bitmap(ms);
                 return new Bitmap(returner);
-            }
-        }
-
-        public static byte[] BitmapToByteArray(Bitmap bitmap)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                bitmap.Save(ms, bitmap.RawFormat);
-                return ms.ToArray();
             }
         }
 
@@ -94,6 +101,9 @@ namespace ImageMover
             File.WriteAllLines(StaticValues.ApplicationDataFile, previousFileContent);
         }
 
+        /// <summary>
+        /// this method initializes some of the static values that can be used
+        /// </summary>
         public static void InitializeStaticValues()
         {
             if (!File.Exists(StaticValues.ApplicationDataFile))
@@ -102,7 +112,7 @@ namespace ImageMover
                 {
                     Directory.CreateDirectory(StaticValues.ApplicationDataLocation);
                 }
-                string[] emptyContent = { "Desktop", "Desktop", "", "", "", "", "" };
+                string[] emptyContent = { Environment.GetFolderPath(Environment.SpecialFolder.Desktop), Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "", "", "", "", "" };
                 File.WriteAllLines(StaticValues.ApplicationDataFile, emptyContent);
             }
             string[] appData = File.ReadAllLines(StaticValues.ApplicationDataFile);
@@ -122,6 +132,14 @@ namespace ImageMover
             StaticValues.LastTransferredFiles = lastFiles.ToArray();
         }
 
+        /// <summary>
+        /// this method is used to extract a sub collection from a collection based on a start and end index, like the string.substring() method does
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalCollection"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="endIndex"></param>
+        /// <returns></returns>
         public static IEnumerable<T> GetSubCollection<T>(IEnumerable<T> originalCollection, int startIndex, int endIndex = -1)
         {
             if (endIndex < 0)
@@ -137,6 +155,12 @@ namespace ImageMover
             return returner;
         }
 
+        /// <summary>
+        /// this is a helper method that checks wether a string ends with any of the strings in the endings array
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="endings"></param>
+        /// <returns></returns>
         public static bool StringEndsWith(string text, string[] endings)
         {
             foreach(string ending in endings)
